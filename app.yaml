@@ -1,0 +1,8 @@
+runtime: nodejs8
+env_variables:
+  NODE_ENV: 'production'
+automatic_scaling:
+  target_cpu_utilization: 0.95
+  max_instances: 1
+  min_instances: 1
+  max_idle_instances: 1
