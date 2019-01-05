@@ -15,7 +15,8 @@ describe('AppController', () => {
   describe('root', () => {
     it('should return "Hello World!"', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.getHello()).toBe('Hello World!');
+      const link = '<a href="https://github.com/r-plus/sma-rss">SMA-RSS</a>';
+      expect(appController.getHello()).toBe(link);
     });
   });
 });
