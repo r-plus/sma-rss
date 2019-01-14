@@ -1,6 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import * as client from 'then-jsonp';
 // import * as util from 'util';
+import * as escape from 'escape-html';
 
 @Controller('atom')
 export class AtomController {
@@ -33,6 +34,7 @@ export class AtomController {
             },
         };
         */
+        // console.log(util.inspect(data, false, null));
         const items = data.info.item;
         const latestUpdateDateString = new Date(items[0].pubDate).toISOString();
         return `
@@ -65,12 +67,15 @@ export class AtomController {
     private createEntries(items: [any]): string {
         return items.map(item => {
             const d = new Date(item.pubDate).toISOString();
+            const html = escape(item.text);
             return `<entry>
                 <id>${item.id}</id>
                 <title>${item.title}</title>
                 <updated>${d}</updated>
-                <summary>${item.text}</summary>
-            </entry>`;
+                <summary type="html">${html}</summary>
+                <content type="html">${html}</content>
+            </entry>
+            `;
         }).join();
     }
     private createEndTag(): string {
