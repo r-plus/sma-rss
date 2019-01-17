@@ -10,4 +10,5 @@ SMA-RSS publish SMA(SonyMusicArtists) artists information as Atom feed that tran
 
 ## Disclaimer
 
-[SMA-RSS](https://sma-rss.appspot.com) running GoogleAppEngine Node.js Standard environment free tier so return error response when rearch to limit.
+[SMA-RSS](https://sma-rss.appspot.com) running GoogleAppEngine Node.js Standard environment free tier so return error response when rearch to limit.  
+Tested on Inoreader. not correctly works on Feedly(why?).
